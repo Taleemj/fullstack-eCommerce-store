@@ -51,7 +51,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="bg-amazon_blue-light flex items-center space-x-3 p-2 pl-6 text-white text-sm">
+      <div className="bg-amazon_blue-light flex items-center flex-wrap space-x-3 p-2 pl-6 text-white text-sm">
         <p className="link flex items-center">
           <Bars3Icon className="h-6 mr-1" /> All
         </p>
