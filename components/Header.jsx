@@ -1,13 +1,17 @@
+"use client";
 import Image from "next/image";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session, status } = useSession();
   return (
     <header className="w-full">
+      {console.log(session)}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         {/* logo */}
         <div className="mt-2 flex flex-grow sm:flex-grow-0">
@@ -31,10 +35,15 @@ const Header = () => {
         </div>
         {/* rigth */}
         <div className="text-white flex items-center text-xs space-x-6 mx-5 whitespace-nowrap">
-          <div className="link">
-            <p>Hello Taleem</p>
+          <div onClick={() => signIn()} className="link">
+            <p>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
+          {session ? (
+            <div className="link" onClick={() => signOut()}>
+              signout
+            </div>
+          ) : null}
           <div className="link">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& orders</p>
