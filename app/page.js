@@ -10,8 +10,8 @@ export default async function Home() {
   return (
     <div className="bg-gray-100">
       <Header />
+      <Banner />
       <main className="max-w-6xl mx-auto">
-        <Banner />
         <ProductsFeed products={products} />
       </main>
     </div>
