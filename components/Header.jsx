@@ -15,7 +15,6 @@ const Header = () => {
   const items = useSelector(selectedItem);
   return (
     <header className="w-full">
-      {console.log(session)}
       <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
         {/* logo */}
         <div className="mt-2 flex flex-grow sm:flex-grow-0">
