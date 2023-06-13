@@ -3,11 +3,20 @@ import Image from "next/image";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import CurrencyFormat from "react-currency-format";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "@/redux/slice/basketslice";
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch();
   const [rating, setrating] = useState(
     Math.floor(Math.random() * (5 - 1 + 1)) + 1
   );
+
+  const addItemToBasket = () => {
+    let product2 = { ...product, rating: rating };
+    dispatch(addToBasket(product2));
+  };
+
   return (
     <div className="relative flex flex-col z-30 bg-white my-5 mx-2 p-8">
       <p className="absolute top-2 right-2 italic text-gray-400">
@@ -30,10 +39,10 @@ const Product = ({ product }) => {
           ))}
       </div>
       <p className="text-xs my-2 line-clamp-2">{product.description}</p>
-      <div className="mb-5">
-        <CurrencyFormat value={product.price} prefix="Ush" />
-      </div>
-      <button className="mt-auto button">Add to Basket</button>
+      <div className="mb-5">UGX {product.price}</div>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Basket
+      </button>
     </div>
   );
 };
