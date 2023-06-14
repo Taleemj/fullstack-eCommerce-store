@@ -40,17 +40,17 @@ const page = () => {
           {console.log(items)}
         </div>
 
-        <div className="md:m-5 m-2">
+        <div className="flex-grow bg-white md:m-5 m-2">
           {items.length > 0 && (
-            <div className="bg-white">
+            <div className="flex flex-col p-2">
               <h2 className="whitespace-nowrap">
-                Subtotal ({items.length}) :{" "}
+                Subtotal ({items.length} items) :{" "}
                 <span className="font-bold">UGX {addSubtotal(items)}</span>
               </h2>
               <button
                 className={`button ${
                   !session &&
-                  "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
+                  "from-gray-300 to-gray-500 border-gray-200 text-gray-300 my-2 cursor-not-allowed"
                 }`}
                 disabled={!session}
               >

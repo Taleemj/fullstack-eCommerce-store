@@ -57,7 +57,7 @@ const Header = () => {
             <span className="absolute top-0 right-0 md:right-12 h-4 w-4 bg-yellow-400 text-center text-black font-bold rounded-full">
               {items.length}
             </span>
-            <Link className="flex" href={"checkout"}>
+            <Link className="flex z-99" href="/checkout">
               <ShoppingCartIcon className="h-10" />
               <p className="font-extrabold hidden md:inline mt-2 ml-1 md:text-sm">
                 Basket
@@ -68,9 +68,11 @@ const Header = () => {
       </div>
 
       <div className="bg-amazon_blue-light flex items-center flex-wrap space-x-3 p-2 pl-6 text-white text-sm">
-        <p className="link flex items-center">
-          <Bars3Icon className="h-6 mr-1" /> All
-        </p>
+        <Link href="/">
+          <p className="link flex items-center">
+            <Bars3Icon className="h-6 mr-1" /> All
+          </p>
+        </Link>
         <p className="link">Electronics</p>
         <p className="link">Food & Grocery</p>
         <p className="link">Healthcare & Personal Care</p>

@@ -16,15 +16,15 @@ const CheckoutProduct = ({ item }) => {
   };
 
   return (
-    <div className="grid grid-cols-5">
+    <div className="flex flex-col md:items-center md:flex-row">
       <Image
         src={item.image}
         alt="image"
-        className=""
+        className="mx-auto my-3 md:my-0"
         width={200}
         height={200}
       />
-      <div className="col-span-3 md:mx-5 mx-1">
+      <div className="md:w-[50%] md:mx-5 mx-1">
         <p>{item.title}</p>
         <div className="flex text-yellow-400 my-2">
           {Array(item.rating)
@@ -37,7 +37,7 @@ const CheckoutProduct = ({ item }) => {
         <p>UGX {item.price}</p>
       </div>
 
-      <div className="flex flex-col space-y-2 my-auto justify-self-end">
+      <div className="flex flex-col space-y-2 my-2 justify-self-end">
         <button className="button" onClick={addItemToBasket}>
           Add to basket
         </button>
