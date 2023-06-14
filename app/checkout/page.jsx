@@ -1,5 +1,6 @@
 "use client";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { selectedItem } from "@/redux/slice/basketslice";
@@ -17,7 +18,7 @@ const Page = () => {
     return total.toFixed(2);
   };
   return (
-    <div className="bg-gray-100">
+    <div className="relative pb-24 min-h-screen bg-gray-100">
       <Header />
       <main className="lg:flex max-w-6xl mx-auto">
         <div className="flex-grow md:m-5 m-2 shadow-sm">
@@ -37,7 +38,6 @@ const Page = () => {
               <CheckoutProduct item={item} key={i} />
             ))}
           </div>
-          {console.log(items)}
         </div>
 
         <div className="flex-grow bg-white md:m-5 m-2">
@@ -60,6 +60,7 @@ const Page = () => {
           )}
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
