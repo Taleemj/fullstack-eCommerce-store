@@ -25,6 +25,7 @@ const Header = () => {
               height={50}
               objectFit="contain"
               className="cursor-pointer"
+              alt="image"
             />
           </Link>
         </div>
