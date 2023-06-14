@@ -29,7 +29,7 @@ const CheckoutProduct = ({ item }) => {
           {Array(item.rating)
             .fill()
             .map((_, i) => (
-              <StarIcon className="h-5" />
+              <StarIcon key={i} className="h-5" />
             ))}
         </div>
         <p className="text-sm my-2 line-clamp-3">{item.description}</p>

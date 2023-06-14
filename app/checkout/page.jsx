@@ -6,7 +6,7 @@ import { selectedItem } from "@/redux/slice/basketslice";
 import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSession } from "next-auth/react";
 
-const page = () => {
+const Page = () => {
   const items = useSelector(selectedItem);
   const { data: session, status } = useSession();
   const addSubtotal = (arr) => {
@@ -64,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
