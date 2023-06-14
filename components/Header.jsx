@@ -15,18 +15,12 @@ const Header = () => {
   const items = useSelector(selectedItem);
   return (
     <header className="w-full">
-      <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
+      <div className="flex align-center flex-wrap bg-amazon_blue p-1 flex-grow py-2">
         {/* logo */}
-        <div className="mt-2 flex flex-grow sm:flex-grow-0">
+        <div className="mr-2 flex flex-grow text-white font-bold text-xl mb-3 md:mb-0 md:text-3xl sm:flex-grow-0">
           <Link href={"/"}>
-            <Image
-              src={`https://links.papareact.com/f90`}
-              width={150}
-              height={50}
-              objectFit="contain"
-              className="cursor-pointer"
-              alt="image"
-            />
+            <h1>thestore</h1>
+            <div className="border-b-yellow-500 border-b-2" />
           </Link>
         </div>
         {/* search  */}
@@ -40,16 +34,11 @@ const Header = () => {
           <MagnifyingGlassIcon className="h-12 p-4" />
         </div>
         {/* rigth */}
-        <div className="text-white flex items-center text-xs space-x-6 mx-5 whitespace-nowrap">
+        <div className="text-white flex items-center text-xs space-x-4 md:space-x-6 md:mx-5 mx-1 whitespace-nowrap">
           <div onClick={() => signIn()} className="link">
             <p>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
-          {session ? (
-            <div className="link" onClick={() => signOut()}>
-              signout
-            </div>
-          ) : null}
           <div className="link">
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& orders</p>
@@ -59,12 +48,17 @@ const Header = () => {
               {items.length}
             </span>
             <Link className="flex z-99" href="/checkout">
-              <ShoppingCartIcon className="h-10" />
+              <ShoppingCartIcon className="md:h-10 h-8" />
               <p className="font-extrabold hidden md:inline mt-2 ml-1 md:text-sm">
                 Basket
               </p>
             </Link>
           </div>
+          {session ? (
+            <div className="link md:ml-5 ml-0" onClick={() => signOut()}>
+              signout
+            </div>
+          ) : null}
         </div>
       </div>
 
