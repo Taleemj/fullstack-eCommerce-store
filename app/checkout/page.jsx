@@ -6,6 +6,12 @@ import { useSelector } from "react-redux";
 import { selectedItem } from "@/redux/slice/basketslice";
 import CheckoutProduct from "@/components/CheckoutProduct";
 import { useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const stripePromise = loadStripe(
+  `pk_test_51NIynsFgXbwn426rbnlpZtLFwQVjxYKPHxrFgg5jJRteh1DMjUPl3GovUckdSe2KxwDYliWCm0XisE6JdOvc2fPi00b0fS97Fi`
+);
 
 const Page = () => {
   const items = useSelector(selectedItem);
@@ -17,6 +23,15 @@ const Page = () => {
     }
     return total.toFixed(2);
   };
+  const createCheckOut = async () => {
+    const stripe = await stripePromise;
+
+    const checkoutSession = await axios.post("/api/stripe", {
+      items: items,
+      email: session.user.email,
+    });
+  };
+
   return (
     <div className="relative pb-24 min-h-screen bg-gray-100">
       <Header />
@@ -48,6 +63,8 @@ const Page = () => {
                 <span className="font-bold">UGX {addSubtotal(items)}</span>
               </h2>
               <button
+                role="link"
+                onClick={createCheckOut}
                 className={`button ${
                   !session &&
                   "from-gray-300 to-gray-500 border-gray-200 text-gray-300 my-2 cursor-not-allowed"
