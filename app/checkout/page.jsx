@@ -30,6 +30,10 @@ const Page = () => {
       items: items,
       email: session.user.email,
     });
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
   };
 
   return (
@@ -60,7 +64,7 @@ const Page = () => {
             <div className="flex flex-col p-2">
               <h2 className="whitespace-nowrap">
                 Subtotal ({items.length} items) :{" "}
-                <span className="font-bold">UGX {addSubtotal(items)}</span>
+                <span className="font-bold">$ {addSubtotal(items)}</span>
               </h2>
               <button
                 role="link"

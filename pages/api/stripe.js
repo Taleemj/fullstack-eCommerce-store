@@ -11,8 +11,8 @@ export default async function handler(req, res) {
       payment_method_types: ["card"],
       billing_address_collection: "auto",
       shipping_options: [
-        { shipping_rate: "shr_1L3cAbLbFhihbY07r1sWARxL" },
-        { shipping_rate: "shr_1L3cCFLbFhihbY07DHtxMWaH" },
+        { shipping_rate: "shr_1NLlx9FgXbwn426rxlDUfdcm" },
+        { shipping_rate: "shr_1NLlwOFgXbwn426rxJxKKtMx" },
       ],
       line_items: items.map((item) => {
         return {
@@ -31,10 +31,11 @@ export default async function handler(req, res) {
       success_url: `${req.headers.origin}/success`,
       cancel_url: `${req.headers.origin}/checkout`,
       metadata: {
-        email,
+        email: email,
         images: JSON.stringify(items.map((item) => item.image)),
       },
     });
+    res.status(200).json({ id: session.id });
   } else {
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
