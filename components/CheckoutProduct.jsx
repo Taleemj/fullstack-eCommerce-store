@@ -33,7 +33,7 @@ const CheckoutProduct = ({ item }) => {
             ))}
         </div>
         <p className="text-sm my-2 line-clamp-3">{item.description}</p>
-        <p>UGX {item.price}</p>
+        <p>$ {item.price}</p>
       </div>
 
       <div className="flex flex-col space-y-2 my-2 justify-self-end">

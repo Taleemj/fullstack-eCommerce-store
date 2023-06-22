@@ -38,7 +38,7 @@ const Product = ({ product }) => {
           ))}
       </div>
       <p className="text-xs my-2 line-clamp-2">{product.description}</p>
-      <div className="mb-5">UGX {product.price}</div>
+      <div className="mb-5">$ {product.price}</div>
       <button onClick={addItemToBasket} className="mt-auto button">
         Add to Basket
       </button>
