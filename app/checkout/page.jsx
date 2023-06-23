@@ -77,6 +77,15 @@ const Page = () => {
               >
                 {!session ? "sign in to checkout" : "Proceed to checkout"}
               </button>
+              {session && (
+                <div className="mt-5">
+                  <h1>use demo card info:</h1>
+                  <p> 4242 4242 4242 4242</p>
+                  <p>12/32</p>
+                  <p>123</p>
+                  <h1>for test purposes.</h1>
+                </div>
+              )}
             </div>
           )}
         </div>
