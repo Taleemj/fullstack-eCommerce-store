@@ -37,12 +37,16 @@ const Header = () => {
         <div className="text-white flex items-center text-xs space-x-4 md:space-x-6 md:mx-5 mx-1 whitespace-nowrap">
           <div onClick={() => signIn()} className="link">
             <p>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
+
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
-          <div className="link">
-            <p>Returns</p>
-            <p className="font-extrabold md:text-sm">& orders</p>
-          </div>
+          <Link href={"/orders"}>
+            <div className="link">
+              <p>Returns</p>
+              <p className="font-extrabold md:text-sm">& orders</p>
+            </div>
+          </Link>
+
           <div className="relative link flex items-center">
             <span className="absolute top-0 right-0 md:right-12 h-4 w-4 bg-yellow-400 text-center text-black font-bold rounded-full">
               {items.length}
