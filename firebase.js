@@ -1,4 +1,5 @@
 import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "shellstuff-a5f5a.firebaseapp.com",
@@ -7,3 +8,9 @@ const firebaseConfig = {
   messagingSenderId: "638997906235",
   appId: process.env.FIREBASE_APP_ID,
 };
+
+const app = !firebase.apps.length
+  ? firebase.initializeApp(firebaseConfig)
+  : firebase.app();
+
+export default db = app.firestore();
